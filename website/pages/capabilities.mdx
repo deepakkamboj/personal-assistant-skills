@@ -1,0 +1,57 @@
+---
+title: Capabilities
+---
+
+import Diagram from "../components/Diagram";
+import { Cards, Card } from "../components/Cards";
+import { MailIcon, CalendarIcon, LinkedInIcon } from "../components/icons";
+
+# Capabilities
+
+External capabilities come from the **connected-workspace MCP server** — skills call these tools
+directly rather than shipping their own credential scripts.
+
+<Diagram
+  src="/skill-map.svg"
+  alt="Skill map grouping the 24 skills into AI digest, daily briefing, personal branding, LinkedIn, email, writing, and visual artifacts."
+  caption="The 24 skills, grouped by what they help you do."
+/>
+
+## connected-workspace MCP
+
+<Cards cols={3}>
+  <Card icon={<MailIcon />} title="Gmail" href="/capabilities">
+    Search, read, send, reply, and modify labels.
+  </Card>
+  <Card icon={<CalendarIcon />} title="Google Calendar" href="/capabilities">
+    List, create, update, and delete events; free/busy lookups.
+  </Card>
+  <Card icon={<LinkedInIcon />} title="LinkedIn" href="/capabilities">
+    Read profile, posts, and engagement; publish text/image posts.
+  </Card>
+</Cards>
+
+## Publishing flow
+
+The newsletter and LinkedIn skills draft content in your voice, run it through the writing-quality
+skills, then publish through the MCP (Gmail / LinkedIn) or deploy static HTML via FTP.
+
+<Diagram
+  src="/publish-flow.svg"
+  alt="Publishing flow: profile and config feed a skill, which drafts content, humanizes and checks readability, then publishes via the connected-workspace MCP or FTP."
+  caption="config + content → skill → humanize / readability → publish (MCP) or deploy (FTP)."
+/>
+
+## Runtimes
+
+The same `.agents/` library runs across three runtimes through thin adapters:
+
+- **Claude Code** — `/assistant:<skill>` commands.
+- **GitHub Copilot** — `/assistant-<skill>` prompt files (enable `chat.promptFiles`).
+- **Codex / any agent** — read `.agents/AGENTS.md` and reference a skill by path.
+
+## Templates
+
+Visual skills build on base templates in `.agents/templates/`: `banner-base.svg`,
+`diagram-base.html`, `infographic-base.html`, and `slides-base.html` — themed with your `config.brand`
+design tokens.

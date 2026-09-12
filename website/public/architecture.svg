@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">personal-assistant-skills architecture</title>
+  <desc id="d">Runtimes call thin adapters, which resolve to the .agents canonical library, which reaches Gmail, Calendar, and LinkedIn through the connected-workspace MCP server plus FTP.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c2230"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <rect width="960" height="560" fill="#0d1117"/>
+
+  <text x="480" y="40" fill="#f0f6fc" font-size="20" font-weight="700" text-anchor="middle">Runtimes</text>
+  <g>
+    <rect x="120" y="58" width="200" height="54" rx="10" fill="url(#panel)" stroke="#d97757"/>
+    <text x="220" y="90" fill="#f0f6fc" font-size="15" text-anchor="middle">Claude Code</text>
+    <rect x="380" y="58" width="200" height="54" rx="10" fill="url(#panel)" stroke="#388bfd"/>
+    <text x="480" y="90" fill="#f0f6fc" font-size="15" text-anchor="middle">GitHub Copilot</text>
+    <rect x="640" y="58" width="200" height="54" rx="10" fill="url(#panel)" stroke="#8957e5"/>
+    <text x="740" y="90" fill="#f0f6fc" font-size="15" text-anchor="middle">Codex / any agent</text>
+  </g>
+
+  <text x="480" y="156" fill="#f0f6fc" font-size="20" font-weight="700" text-anchor="middle">Thin adapters</text>
+  <g fill="#c9d1d9" font-size="12.5" text-anchor="middle">
+    <rect x="120" y="172" width="200" height="44" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="220" y="199">/assistant: commands</text>
+    <rect x="380" y="172" width="200" height="44" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="480" y="199">.github/prompts · /assistant-</text>
+    <rect x="640" y="172" width="200" height="44" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="740" y="199">AGENTS.md · by path</text>
+  </g>
+
+  <rect x="90" y="252" width="780" height="176" rx="14" fill="#12101f" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="480" y="280" fill="#8b8cf5" font-size="18" font-weight="700" text-anchor="middle">.agents/ — canonical source of truth</text>
+  <g font-size="13" text-anchor="middle">
+    <rect x="112" y="296" width="150" height="58" rx="9" fill="url(#panel)" stroke="#30363d"/>
+    <text x="187" y="321" fill="#f0f6fc">skills · 24</text>
+    <text x="187" y="339" fill="#8b949e" font-size="11">core·email·writing·linkedin</text>
+    <rect x="278" y="296" width="150" height="58" rx="9" fill="url(#panel)" stroke="#30363d"/>
+    <text x="353" y="321" fill="#f0f6fc">config</text>
+    <text x="353" y="339" fill="#8b949e" font-size="11">config.json + content.md</text>
+    <rect x="444" y="296" width="150" height="58" rx="9" fill="url(#panel)" stroke="#30363d"/>
+    <text x="519" y="321" fill="#f0f6fc">mcp</text>
+    <text x="519" y="339" fill="#8b949e" font-size="11">connected-workspace</text>
+    <rect x="610" y="296" width="150" height="58" rx="9" fill="url(#panel)" stroke="#30363d"/>
+    <text x="685" y="321" fill="#f0f6fc">templates</text>
+    <text x="685" y="339" fill="#8b949e" font-size="11">banner·diagram·slides</text>
+    <rect x="311" y="368" width="338" height="46" rx="9" fill="url(#panel)" stroke="#30363d"/>
+    <text x="480" y="396" fill="#f0f6fc">scripts · assistant_config · memory</text>
+  </g>
+
+  <text x="480" y="470" fill="#f0f6fc" font-size="20" font-weight="700" text-anchor="middle">External capabilities</text>
+  <g fill="#c9d1d9" font-size="13" text-anchor="middle">
+    <rect x="150" y="486" width="150" height="46" rx="8" fill="#161b22" stroke="#0a7ea4"/>
+    <text x="225" y="514">Gmail</text>
+    <rect x="330" y="486" width="150" height="46" rx="8" fill="#161b22" stroke="#0a7ea4"/>
+    <text x="405" y="514">Google Calendar</text>
+    <rect x="510" y="486" width="150" height="46" rx="8" fill="#161b22" stroke="#0a7ea4"/>
+    <text x="585" y="514">LinkedIn</text>
+    <rect x="690" y="486" width="120" height="46" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="750" y="514">FTP deploy</text>
+  </g>
+
+  <g stroke="#8b949e" stroke-width="1.6" marker-end="url(#arrow)" fill="none">
+    <path d="M220,112 L220,170"/>
+    <path d="M480,112 L480,170"/>
+    <path d="M740,112 L740,170"/>
+    <path d="M220,216 L300,250"/>
+    <path d="M480,216 L480,250"/>
+    <path d="M740,216 L660,250"/>
+    <path d="M480,428 L480,484"/>
+  </g>
+</svg>

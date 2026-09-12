@@ -1,0 +1,106 @@
+---
+title: Getting started
+---
+
+import { PackageInstall } from "../components/PackageInstall";
+import { EnvTable } from "../components/EnvTable";
+import { FileStructure } from "../components/FileStructure";
+
+# Getting started
+
+Requirements: Node.js ≥ 18 (Python ≥ 3.9 for a few helper scripts). Email, calendar, and LinkedIn
+publishing are provided by the **connected-workspace MCP server** — no local credentials scripts.
+
+## 1. Install
+
+<PackageInstall packages={["personal-assistant-skills"]} />
+
+Or clone the repo to work with the canonical library directly:
+
+```bash
+git clone https://github.com/deepakkamboj/personal-assistant-skills.git
+cd personal-assistant-skills
+npm test      # validates the config template
+```
+
+The canonical library lives under `.agents/`:
+
+<FileStructure
+  items={[
+    {
+      name: ".agents/",
+      type: "folder",
+      description: "canonical source of truth",
+      children: [
+        { name: "skills/", type: "folder", description: "24 skills (core, email, writing, linkedin)" },
+        { name: "config/", type: "folder", description: "config.example.json + content.example.md" },
+        { name: "mcp/", type: "folder", description: "connected-workspace (Gmail · Calendar · LinkedIn)" },
+        { name: "templates/", type: "folder", description: "banner · diagram · infographic · slides" },
+        { name: "scripts/", type: "folder", description: "assistant_config · memory helpers" },
+        { name: "AGENTS.md", type: "file", description: "operating rules" },
+      ],
+    },
+  ]}
+/>
+
+## 2. Configure
+
+The plugin reads one `config.json`, resolved from the `ASSISTANT_CONFIG` environment variable
+(fallback `~/.assistant/config.json`), plus prose companions `content.md`, `memory.md`, and
+`notes.md`. There is **no `data/` folder**, and a real `config.json` is never committed.
+
+```bash
+mkdir -p ~/.assistant
+cp .agents/config/config.example.json  ~/.assistant/config.json
+cp .agents/config/content.example.md   ~/.assistant/content.md
+
+export ASSISTANT_CONFIG=~/.assistant/config.json
+# PowerShell: $env:ASSISTANT_CONFIG = "$HOME/.assistant/config.json"
+```
+
+<EnvTable
+  vars={[
+    {
+      name: "ASSISTANT_CONFIG",
+      required: false,
+      description: "Path to config.json. Falls back to ~/.assistant/config.json when unset.",
+      example: "~/.assistant/config.json",
+    },
+    {
+      name: "NEXT_PUBLIC_BASE_PATH",
+      required: false,
+      description: "Base path for building this docs site for GitHub Pages.",
+      example: "/personal-assistant-skills",
+    },
+    {
+      name: "NPM_AUTH_TOKEN",
+      required: false,
+      description: "CI-only secret used by the publish workflow to publish to npm.",
+      example: "(repo secret)",
+    },
+  ]}
+/>
+
+Fill in `profile`, `brand` tokens, `digest.sources`, and `newsletter` settings in `config.json`, and
+your voice samples in `content.md`.
+
+## 3. Invoke a skill
+
+Skills are invocable as slash commands via prompt files in `.github/prompts/` (enable the
+`chat.promptFiles` VS Code setting). Claude Code uses the `/assistant:<name>` form.
+
+```
+/assistant-me            write a bio / headline / elevator pitch
+/assistant-linkedin      draft a LinkedIn post
+/assistant-post          plan or review a post
+/assistant-ai-digest     generate the weekly AI digest
+```
+
+For Codex or any agent runner, point the agent at `.agents/AGENTS.md` and reference a skill by path,
+e.g. `.agents/skills/linkedin/post/SKILL.md`.
+
+## 4. Capabilities via MCP
+
+The `connected-workspace` MCP server provides Gmail (search/read/send/reply), Google Calendar
+(list/create/update events, free-busy), and LinkedIn (read profile/posts/engagement, publish). Skills
+call these tools instead of local scripts — see [Capabilities](/capabilities).

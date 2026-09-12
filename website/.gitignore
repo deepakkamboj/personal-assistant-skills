@@ -1,0 +1,13 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# generated catalog (built from ../.agents frontmatter by scripts/gen-catalog.mjs)
+/data/catalog.json
+
+# misc
+*.tsbuildinfo

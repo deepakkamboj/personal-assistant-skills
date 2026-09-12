@@ -1,0 +1,26 @@
+{
+  "name": "personal-assistant-skills-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nextra documentation site for personal-assistant-skills (static-exported to GitHub Pages).",
+  "scripts": {
+    "predev": "node scripts/gen-catalog.mjs",
+    "dev": "next dev",
+    "prebuild": "node scripts/gen-catalog.mjs",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^14.2.15",
+    "nextra": "^3.0.0",
+    "nextra-theme-docs": "^3.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "typescript": "5.5.3"
+  }
+}
