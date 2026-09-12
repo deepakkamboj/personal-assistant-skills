@@ -1,0 +1,1216 @@
+{
+  "$schema": "./config.schema.json",
+  "meta": {
+    "description": "Single source of truth for the assistant plugin. Copy to the path referenced by the ASSISTANT_CONFIG env var (default ~/.assistant/config.json).",
+    "version": "3.0.0"
+  },
+  "profile": {
+    "name": "Your Name",
+    "title": "Your Title",
+    "company": "Your Company",
+    "email": "you@example.com",
+    "linkedin": "https://www.linkedin.com/in/your-handle/",
+    "website": "https://example.com",
+    "headline": "Your Title at Your Company | Topic One | Topic Two | Topic Three",
+    "tagline": "Your one-line positioning statement",
+    "bio": {
+      "short": "",
+      "long": ""
+    },
+    "content_pillars": [
+      "AI Agents",
+      "Test Automation",
+      "Developer Productivity",
+      "Accessibility"
+    ],
+    "keywords": [
+      "AI Agents",
+      "Playwright",
+      "Test Automation",
+      "Accessibility",
+      "MCP",
+      "LLMOps",
+      "DevOps"
+    ],
+    "writing_style": {
+      "tone": [
+        "direct",
+        "conversational",
+        "data-driven"
+      ],
+      "vocabulary_prefer": [],
+      "vocabulary_avoid": [
+        "excited to announce",
+        "game-changer",
+        "synergy"
+      ],
+      "sentence_structure": "short punchy sentences with occasional longer flowing ones",
+      "avoid_em_dashes": true
+    },
+    "photo": ""
+  },
+  "brand": {
+    "_meta": {
+      "description": "Pixel skill — design tokens used for all generated artifacts",
+      "note": "Edit these values to match your personal/company brand. Used by /pixel for consistent visuals.",
+      "last_updated": "2026-02-19"
+    },
+    "author": {
+      "photo": "photos/author.png",
+      "photo_relative_from_output": "../../../photos/author.png",
+      "photo_note": "Pre-cropped circular PNG. Use a relative path for output artifacts under output/pixel/[type]/."
+    },
+    "colors": {
+      "primary": "#6366f1",
+      "primary_dark": "#4f46e5",
+      "primary_light": "#a5b4fc",
+      "secondary": "#06b6d4",
+      "accent": "#f59e0b",
+      "success": "#22c55e",
+      "warning": "#f97316",
+      "danger": "#ef4444",
+      "info": "#3b82f6",
+      "background": "#0f172a",
+      "surface": "#1e293b",
+      "surface_2": "#334155",
+      "border": "#475569",
+      "text_primary": "#f1f5f9",
+      "text_secondary": "#94a3b8",
+      "text_muted": "#64748b",
+      "white": "#ffffff",
+      "black": "#000000",
+      "gradient_hero": "linear-gradient(135deg, #6366f1 0%, #06b6d4 100%)",
+      "gradient_warm": "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)",
+      "gradient_cool": "linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)"
+    },
+    "category_colors": {
+      "breaking_news": "#ef4444",
+      "models_apis": "#8b5cf6",
+      "research_papers": "#3b82f6",
+      "github_repos": "#22c55e",
+      "products_tools": "#f59e0b",
+      "industry_analysis": "#06b6d4",
+      "agents_automation": "#ec4899",
+      "events": "#f97316",
+      "tutorials": "#84cc16",
+      "linkedin": "#0ea5e9"
+    },
+    "typography": {
+      "font_heading": "'Inter', 'Segoe UI', system-ui, sans-serif",
+      "font_body": "'Inter', 'Segoe UI', system-ui, sans-serif",
+      "font_mono": "'Fira Code', 'Cascadia Code', 'Consolas', monospace",
+      "font_display": "'Inter', system-ui, sans-serif",
+      "scale": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+        "6xl": "3.75rem"
+      },
+      "weight": {
+        "normal": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700,
+        "extrabold": 800,
+        "black": 900
+      }
+    },
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "2xl": "48px",
+      "3xl": "64px"
+    },
+    "radius": {
+      "sm": "4px",
+      "md": "8px",
+      "lg": "12px",
+      "xl": "16px",
+      "2xl": "24px",
+      "full": "9999px"
+    },
+    "shadows": {
+      "sm": "0 1px 3px rgba(0,0,0,0.3)",
+      "md": "0 4px 12px rgba(0,0,0,0.4)",
+      "lg": "0 8px 32px rgba(0,0,0,0.5)",
+      "glow_primary": "0 0 24px rgba(99,102,241,0.4)",
+      "glow_secondary": "0 0 24px rgba(6,182,212,0.4)"
+    },
+    "canvas_sizes": {
+      "linkedin_banner": {
+        "width": 1200,
+        "height": 628,
+        "note": "LinkedIn article banner / hero image"
+      },
+      "linkedin_post": {
+        "width": 1080,
+        "height": 1080,
+        "note": "LinkedIn square post image"
+      },
+      "linkedin_portrait": {
+        "width": 1080,
+        "height": 1350,
+        "note": "LinkedIn portrait post"
+      },
+      "slide_16_9": {
+        "width": 1920,
+        "height": 1080,
+        "note": "Widescreen presentation"
+      },
+      "slide_4_3": {
+        "width": 1024,
+        "height": 768,
+        "note": "Standard presentation"
+      },
+      "infographic_tall": {
+        "width": 800,
+        "height": 2000,
+        "note": "Vertical infographic"
+      },
+      "infographic_wide": {
+        "width": 1200,
+        "height": 675,
+        "note": "Horizontal infographic"
+      },
+      "twitter_card": {
+        "width": 1200,
+        "height": 628,
+        "note": "Twitter/X card"
+      },
+      "og_image": {
+        "width": 1200,
+        "height": 630,
+        "note": "Open Graph image"
+      }
+    },
+    "diagram_themes": {
+      "dark": {
+        "background": "#0f172a",
+        "node_fill": "#1e293b",
+        "node_border": "#6366f1",
+        "node_text": "#f1f5f9",
+        "edge_color": "#94a3b8",
+        "accent": "#6366f1"
+      },
+      "light": {
+        "background": "#ffffff",
+        "node_fill": "#f8fafc",
+        "node_border": "#6366f1",
+        "node_text": "#0f172a",
+        "edge_color": "#64748b",
+        "accent": "#6366f1"
+      },
+      "brand": {
+        "background": "#0f172a",
+        "node_fill": "linear-gradient(135deg, #6366f1, #06b6d4)",
+        "node_border": "#a5b4fc",
+        "node_text": "#ffffff",
+        "edge_color": "#6366f1",
+        "accent": "#f59e0b"
+      }
+    },
+    "slide_themes": {
+      "dark_minimal": {
+        "background": "#0f172a",
+        "slide_bg": "#1e293b",
+        "heading_color": "#f1f5f9",
+        "body_color": "#94a3b8",
+        "accent": "#6366f1",
+        "code_bg": "#0f172a"
+      },
+      "light_clean": {
+        "background": "#f8fafc",
+        "slide_bg": "#ffffff",
+        "heading_color": "#0f172a",
+        "body_color": "#475569",
+        "accent": "#6366f1",
+        "code_bg": "#f1f5f9"
+      },
+      "brand_gradient": {
+        "background": "#0f172a",
+        "slide_bg": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+        "heading_color": "#ffffff",
+        "body_color": "#a5b4fc",
+        "accent": "#06b6d4",
+        "code_bg": "#0f172a"
+      }
+    }
+  },
+  "digest": {
+    "categories": [
+      "breaking_news",
+      "models_apis",
+      "research_papers",
+      "github_repos",
+      "products_tools",
+      "industry_analysis",
+      "agents_automation",
+      "events_conferences",
+      "tutorials_learning",
+      "linkedin_insights"
+    ],
+    "sources": [
+      {
+        "id": "openai-blog",
+        "name": "OpenAI Blog",
+        "url": "https://openai.com/blog",
+        "rss": "https://openai.com/blog/rss.xml",
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "breaking_news",
+          "models_apis",
+          "agents_automation",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Official research, product updates, policy.",
+        "search_query": "site:openai.com/blog"
+      },
+      {
+        "id": "openai-news",
+        "name": "OpenAI News",
+        "url": "https://openai.com/news",
+        "rss": null,
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "breaking_news",
+          "models_apis",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Official product announcements and company news.",
+        "search_query": "site:openai.com/news"
+      },
+      {
+        "id": "google-ai-blog",
+        "name": "Google AI Blog",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/",
+        "rss": "https://blog.google/rss/",
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "breaking_news",
+          "models_apis",
+          "research_papers",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Google research & innovation posts.",
+        "search_query": "site:blog.google AI"
+      },
+      {
+        "id": "google-ai-googleblog",
+        "name": "Google AI Blog (research.google)",
+        "url": "https://ai.googleblog.com",
+        "rss": "http://googleaiblog.blogspot.com/atom.xml",
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "research_papers",
+          "models_apis"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Deeper technical research posts from Google AI.",
+        "search_query": "site:ai.googleblog.com"
+      },
+      {
+        "id": "huggingface-blog",
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog",
+        "rss": null,
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "models_apis",
+          "github_repos",
+          "tutorials_learning"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Open-source models, NLP, tooling.",
+        "search_query": "site:huggingface.co/blog"
+      },
+      {
+        "id": "anthropic-blog",
+        "name": "Anthropic Blog & News",
+        "url": "https://www.anthropic.com/news",
+        "rss": null,
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "breaking_news",
+          "models_apis",
+          "agents_automation",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Safety & agentic AI updates.",
+        "search_query": "site:anthropic.com/news"
+      },
+      {
+        "id": "mistral-news",
+        "name": "Mistral AI News",
+        "url": "https://mistral.ai/news",
+        "rss": null,
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "breaking_news",
+          "models_apis",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Model releases, research, and product updates from Mistral AI.",
+        "search_query": "site:mistral.ai/news"
+      },
+      {
+        "id": "nvidia-developer-ai",
+        "name": "NVIDIA Developer AI Blog",
+        "url": "https://developer.nvidia.com/blog/category/generative-ai/",
+        "rss": "https://developer.nvidia.com/blog/feed/",
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "products_tools",
+          "models_apis",
+          "tutorials_learning"
+        ],
+        "linkedin_worthy": false,
+        "notes": "GPUs, deep learning, optimization.",
+        "search_query": "site:developer.nvidia.com/blog AI"
+      },
+      {
+        "id": "bair-blog",
+        "name": "BAIR Lab Blog (Berkeley AI)",
+        "url": "https://bair.berkeley.edu/blog",
+        "rss": "https://bair.berkeley.edu/blog/feed.xml",
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "research_papers",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Academic research from Berkeley AI.",
+        "search_query": "site:bair.berkeley.edu/blog"
+      },
+      {
+        "id": "deepmind-research",
+        "name": "Google DeepMind Blog",
+        "url": "https://deepmind.google/research/",
+        "rss": null,
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "research_papers",
+          "breaking_news",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Cutting-edge AI research & papers.",
+        "search_query": "site:deepmind.google"
+      },
+      {
+        "id": "meta-ai-research",
+        "name": "Meta AI Research",
+        "url": "https://ai.meta.com/research/",
+        "rss": null,
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "research_papers",
+          "models_apis",
+          "breaking_news"
+        ],
+        "linkedin_worthy": true,
+        "notes": "LLaMA models, open-source AI research.",
+        "search_query": "site:ai.meta.com"
+      },
+      {
+        "id": "microsoft-research",
+        "name": "Microsoft Research Publications",
+        "url": "https://www.microsoft.com/en-us/research/",
+        "rss": "https://www.microsoft.com/en-us/research/feed/",
+        "category": "AI Research & Company Blogs",
+        "type": "blog",
+        "digest_categories": [
+          "research_papers",
+          "models_apis"
+        ],
+        "linkedin_worthy": false,
+        "notes": "AI, ML, and applied research publications.",
+        "search_query": "site:microsoft.com/en-us/research AI"
+      },
+      {
+        "id": "venturebeat-ai",
+        "name": "VentureBeat – AI",
+        "url": "https://venturebeat.com/category/ai/",
+        "rss": "https://venturebeat.com/category/ai/feed/",
+        "category": "Tech News & Industry Sites",
+        "type": "news",
+        "digest_categories": [
+          "breaking_news",
+          "products_tools",
+          "industry_analysis",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "AI business & trends.",
+        "search_query": "site:venturebeat.com AI"
+      },
+      {
+        "id": "techcrunch-ai",
+        "name": "TechCrunch – AI",
+        "url": "https://techcrunch.com/tag/ai/",
+        "rss": "https://techcrunch.com/tag/ai/feed/",
+        "category": "Tech News & Industry Sites",
+        "type": "news",
+        "digest_categories": [
+          "breaking_news",
+          "products_tools",
+          "industry_analysis"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Startup & industry AI news.",
+        "search_query": "site:techcrunch.com AI"
+      },
+      {
+        "id": "mit-tech-review-ai",
+        "name": "MIT Technology Review – AI",
+        "url": "https://www.technologyreview.com/ai/",
+        "rss": "https://www.technologyreview.com/feed/",
+        "category": "Tech News & Industry Sites",
+        "type": "news",
+        "digest_categories": [
+          "industry_analysis",
+          "linkedin_insights",
+          "breaking_news"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Analysis and trend pieces.",
+        "search_query": "site:technologyreview.com AI"
+      },
+      {
+        "id": "the-verge-ai",
+        "name": "The Verge – AI",
+        "url": "https://www.theverge.com/tech/ai",
+        "rss": "https://www.theverge.com/rss/index.xml",
+        "category": "Tech News & Industry Sites",
+        "type": "news",
+        "digest_categories": [
+          "breaking_news",
+          "products_tools",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Consumer-focused AI coverage.",
+        "search_query": "site:theverge.com AI"
+      },
+      {
+        "id": "wired-ai",
+        "name": "Wired – AI",
+        "url": "https://www.wired.com/tag/artificial-intelligence/",
+        "rss": "https://www.wired.com/feed/tag/ai/latest/rss",
+        "category": "Tech News & Industry Sites",
+        "type": "news",
+        "digest_categories": [
+          "industry_analysis",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Feature stories on AI impact and future trends.",
+        "search_query": "site:wired.com artificial intelligence"
+      },
+      {
+        "id": "hackernoon",
+        "name": "HackerNoon – AI",
+        "url": "https://hackernoon.com/tagged/artificial-intelligence",
+        "rss": "https://hackernoon.com/tagged/artificial-intelligence/feed",
+        "category": "Tech News & Industry Sites",
+        "type": "community",
+        "digest_categories": [
+          "tutorials_learning",
+          "products_tools"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Community tech & AI stories.",
+        "search_query": "site:hackernoon.com AI"
+      },
+      {
+        "id": "cnn-business-tech",
+        "name": "CNN Business – Technology",
+        "url": "https://www.cnn.com/business/tech",
+        "rss": "https://rss.cnn.com/rss/edition_technology.rss",
+        "category": "Tech News & Industry Sites",
+        "type": "news",
+        "digest_categories": [
+          "breaking_news",
+          "industry_analysis",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Mainstream tech and AI business news from CNN.",
+        "search_query": "site:cnn.com/business/tech AI"
+      },
+      {
+        "id": "gartner-ai",
+        "name": "Gartner – AI Research",
+        "url": "https://www.gartner.com/en/information-technology/topics/artificial-intelligence",
+        "rss": null,
+        "category": "Industry & Analysis Platforms",
+        "type": "analyst",
+        "digest_categories": [
+          "industry_analysis",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Market trends, hype cycle, and enterprise adoption research.",
+        "search_query": "site:gartner.com artificial intelligence"
+      },
+      {
+        "id": "forrester-ai",
+        "name": "Forrester – AI Reports",
+        "url": "https://www.forrester.com/research/artificial-intelligence/",
+        "rss": null,
+        "category": "Industry & Analysis Platforms",
+        "type": "analyst",
+        "digest_categories": [
+          "industry_analysis",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Analyst insights for business & AI strategy.",
+        "search_query": "site:forrester.com AI"
+      },
+      {
+        "id": "towards-data-science",
+        "name": "Towards Data Science",
+        "url": "https://towardsdatascience.com",
+        "rss": "https://towardsdatascience.com/feed",
+        "category": "Community & Tutorials",
+        "type": "tutorial",
+        "digest_categories": [
+          "tutorials_learning",
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Tutorials, explainers, trends.",
+        "search_query": "site:towardsdatascience.com"
+      },
+      {
+        "id": "kdnuggets",
+        "name": "KDnuggets",
+        "url": "https://www.kdnuggets.com",
+        "rss": "https://www.kdnuggets.com/feed",
+        "category": "Community & Tutorials",
+        "type": "news",
+        "digest_categories": [
+          "tutorials_learning",
+          "products_tools",
+          "breaking_news"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Data science & ML news.",
+        "search_query": "site:kdnuggets.com AI"
+      },
+      {
+        "id": "reddit-ml",
+        "name": "Reddit r/MachineLearning",
+        "url": "https://www.reddit.com/r/MachineLearning",
+        "rss": "https://www.reddit.com/r/MachineLearning.rss",
+        "category": "Community & Tutorials",
+        "type": "community",
+        "digest_categories": [
+          "research_papers",
+          "breaking_news",
+          "github_repos"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Community research discussion.",
+        "search_query": "reddit.com/r/MachineLearning"
+      },
+      {
+        "id": "reddit-ai",
+        "name": "Reddit r/artificial",
+        "url": "https://www.reddit.com/r/artificial",
+        "rss": "https://www.reddit.com/r/artificial.rss",
+        "category": "Community & Tutorials",
+        "type": "community",
+        "digest_categories": [
+          "breaking_news",
+          "products_tools"
+        ],
+        "linkedin_worthy": false,
+        "notes": "General AI community discussion.",
+        "search_query": "reddit.com/r/artificial"
+      },
+      {
+        "id": "github-free-ai-resources",
+        "name": "GitHub – Free AI Resources",
+        "url": "https://github.com/CelaDaniel/free-ai-resources-x",
+        "rss": null,
+        "category": "Community & Tutorials",
+        "type": "github",
+        "digest_categories": [
+          "github_repos",
+          "tutorials_learning"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Curated ML tools & links.",
+        "search_query": "github.com CelaDaniel free-ai-resources"
+      },
+      {
+        "id": "github-trending-ai",
+        "name": "GitHub Trending – AI/ML",
+        "url": "https://github.com/trending?l=python&since=weekly",
+        "rss": null,
+        "category": "Community & Tutorials",
+        "type": "github",
+        "digest_categories": [
+          "github_repos",
+          "products_tools"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Weekly trending Python repos, mostly AI/ML.",
+        "search_query": "github trending AI machine learning"
+      },
+      {
+        "id": "openai-api-docs",
+        "name": "OpenAI API Docs & Updates",
+        "url": "https://platform.openai.com/docs",
+        "rss": null,
+        "category": "APIs & Developers",
+        "type": "api",
+        "digest_categories": [
+          "models_apis",
+          "tutorials_learning"
+        ],
+        "linkedin_worthy": false,
+        "notes": "API reference & model updates.",
+        "search_query": "site:platform.openai.com/docs"
+      },
+      {
+        "id": "public-apis-ml",
+        "name": "Public APIs – Machine Learning",
+        "url": "https://publicapis.dev/category/machine-learning",
+        "rss": null,
+        "category": "APIs & Developers",
+        "type": "api",
+        "digest_categories": [
+          "products_tools",
+          "models_apis"
+        ],
+        "linkedin_worthy": false,
+        "notes": "List of ML/AI APIs.",
+        "search_query": "publicapis.dev machine-learning"
+      },
+      {
+        "id": "google-cloud-ai",
+        "name": "Google Cloud AI/ML APIs",
+        "url": "https://cloud.google.com/products/ai/",
+        "rss": null,
+        "category": "APIs & Developers",
+        "type": "api",
+        "digest_categories": [
+          "models_apis",
+          "products_tools"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Pre-built Google AI services.",
+        "search_query": "site:cloud.google.com AI"
+      },
+      {
+        "id": "ibm-watson",
+        "name": "IBM Watson AI APIs",
+        "url": "https://www.ibm.com/watson",
+        "rss": null,
+        "category": "APIs & Developers",
+        "type": "api",
+        "digest_categories": [
+          "products_tools",
+          "industry_analysis"
+        ],
+        "linkedin_worthy": false,
+        "notes": "NLP & analytics APIs.",
+        "search_query": "site:ibm.com watson AI"
+      },
+      {
+        "id": "aws-ai",
+        "name": "AWS AI Services",
+        "url": "https://aws.amazon.com/machine-learning/",
+        "rss": null,
+        "category": "APIs & Developers",
+        "type": "api",
+        "digest_categories": [
+          "models_apis",
+          "products_tools"
+        ],
+        "linkedin_worthy": false,
+        "notes": "ML & generative AI APIs.",
+        "search_query": "site:aws.amazon.com machine-learning AI"
+      },
+      {
+        "id": "huggingface-hub",
+        "name": "Hugging Face Hub & API",
+        "url": "https://huggingface.co/models",
+        "rss": null,
+        "category": "APIs & Developers",
+        "type": "api",
+        "digest_categories": [
+          "models_apis",
+          "github_repos",
+          "products_tools"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Models, datasets, and community trends.",
+        "search_query": "huggingface.co new model"
+      },
+      {
+        "id": "tensorflow",
+        "name": "TensorFlow Blog",
+        "url": "https://blog.tensorflow.org/",
+        "rss": "https://blog.tensorflow.org/feeds/posts/default",
+        "category": "APIs & Developers",
+        "type": "blog",
+        "digest_categories": [
+          "models_apis",
+          "tutorials_learning"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Release notes & model updates.",
+        "search_query": "site:blog.tensorflow.org"
+      },
+      {
+        "id": "pytorch-blog",
+        "name": "PyTorch Blog",
+        "url": "https://pytorch.org/blog/",
+        "rss": "https://pytorch.org/feed.xml",
+        "category": "APIs & Developers",
+        "type": "blog",
+        "digest_categories": [
+          "models_apis",
+          "tutorials_learning"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Release notes + model updates.",
+        "search_query": "site:pytorch.org/blog"
+      },
+      {
+        "id": "eleutherai",
+        "name": "EleutherAI",
+        "url": "https://www.eleuther.ai/",
+        "rss": null,
+        "category": "APIs & Developers",
+        "type": "research",
+        "digest_categories": [
+          "research_papers",
+          "models_apis",
+          "github_repos"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Collaborative open LLM research and benchmarks.",
+        "search_query": "site:eleuther.ai"
+      },
+      {
+        "id": "nature-machine-intelligence",
+        "name": "Nature Machine Intelligence",
+        "url": "https://www.nature.com/natmachintell/",
+        "rss": "https://www.nature.com/natmachintell.rss",
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Top-tier AI/ML research journal.",
+        "search_query": "site:nature.com natmachintell"
+      },
+      {
+        "id": "jmlr",
+        "name": "Journal of Machine Learning Research (JMLR)",
+        "url": "https://www.jmlr.org/",
+        "rss": null,
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Open access ML journal.",
+        "search_query": "site:jmlr.org"
+      },
+      {
+        "id": "ieee-tpami",
+        "name": "IEEE TPAMI Journal",
+        "url": "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34",
+        "rss": null,
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Computer vision & learning.",
+        "search_query": "site:ieeexplore.ieee.org TPAMI"
+      },
+      {
+        "id": "ieee-tnnls",
+        "name": "IEEE Transactions on Neural Networks and Learning Systems",
+        "url": "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385",
+        "rss": null,
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Neural networks and learning research.",
+        "search_query": "site:ieeexplore.ieee.org neural networks"
+      },
+      {
+        "id": "neurocomputing",
+        "name": "Neurocomputing Journal",
+        "url": "https://www.journals.elsevier.com/neurocomputing",
+        "rss": null,
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Neural nets & ML research.",
+        "search_query": "site:sciencedirect.com neurocomputing"
+      },
+      {
+        "id": "advanced-intelligent-systems",
+        "name": "Advanced Intelligent Systems",
+        "url": "https://onlinelibrary.wiley.com/journal/26404567",
+        "rss": null,
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "AI systems research.",
+        "search_query": "site:onlinelibrary.wiley.com advanced intelligent systems"
+      },
+      {
+        "id": "minds-and-machines",
+        "name": "Minds and Machines",
+        "url": "https://www.springer.com/computer/ai/journal/11023",
+        "rss": null,
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": false,
+        "notes": "AI & cognition journal.",
+        "search_query": "site:springer.com minds machines"
+      },
+      {
+        "id": "adcaij",
+        "name": "Advances in Distributed Computing & AI Journal",
+        "url": "https://adcaij.usal.es",
+        "rss": null,
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers",
+          "agents_automation"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Distributed AI research.",
+        "search_query": "site:adcaij.usal.es"
+      },
+      {
+        "id": "acm-tist",
+        "name": "ACM Transactions on Intelligent Systems and Technology",
+        "url": "https://dl.acm.org/journal/tist",
+        "rss": null,
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "AI systems and technology research.",
+        "search_query": "site:dl.acm.org TIST AI"
+      },
+      {
+        "id": "elsevier-ai-journal",
+        "name": "Artificial Intelligence Journal (Elsevier)",
+        "url": "https://www.sciencedirect.com/journal/artificial-intelligence",
+        "rss": null,
+        "category": "Academic Journals",
+        "type": "journal",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Flagship AI research journal.",
+        "search_query": "site:sciencedirect.com artificial intelligence journal"
+      },
+      {
+        "id": "arxiv-ai",
+        "name": "arXiv – CS.AI (Artificial Intelligence)",
+        "url": "https://arxiv.org/list/cs.AI/recent",
+        "rss": "https://arxiv.org/rss/cs.AI",
+        "category": "Preprint & Research Repositories",
+        "type": "preprint",
+        "digest_categories": [
+          "research_papers",
+          "agents_automation"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Latest AI preprints.",
+        "search_query": "arxiv.org cs.AI"
+      },
+      {
+        "id": "arxiv-ml",
+        "name": "arXiv – CS.LG (Machine Learning)",
+        "url": "https://arxiv.org/list/cs.LG/recent",
+        "rss": "https://arxiv.org/rss/cs.LG",
+        "category": "Preprint & Research Repositories",
+        "type": "preprint",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Latest ML preprints.",
+        "search_query": "arxiv.org cs.LG"
+      },
+      {
+        "id": "arxiv-cl",
+        "name": "arXiv – CS.CL (NLP / Computation and Language)",
+        "url": "https://arxiv.org/list/cs.CL/recent",
+        "rss": "https://arxiv.org/rss/cs.CL",
+        "category": "Preprint & Research Repositories",
+        "type": "preprint",
+        "digest_categories": [
+          "research_papers",
+          "models_apis"
+        ],
+        "linkedin_worthy": false,
+        "notes": "LLM and NLP preprints.",
+        "search_query": "arxiv.org cs.CL LLM"
+      },
+      {
+        "id": "openreview",
+        "name": "OpenReview.net",
+        "url": "https://openreview.net/",
+        "rss": null,
+        "category": "Preprint & Research Repositories",
+        "type": "preprint",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Conference preprints & reviews (NeurIPS, ICLR, ICML).",
+        "search_query": "site:openreview.net"
+      },
+      {
+        "id": "semantic-scholar",
+        "name": "Semantic Scholar",
+        "url": "https://www.semanticscholar.org/",
+        "rss": null,
+        "category": "Preprint & Research Repositories",
+        "type": "search",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Search & citation analytics.",
+        "search_query": "semanticscholar.org AI"
+      },
+      {
+        "id": "papers-with-code",
+        "name": "Papers With Code",
+        "url": "https://paperswithcode.com/",
+        "rss": "https://paperswithcode.com/rss",
+        "category": "Preprint & Research Repositories",
+        "type": "search",
+        "digest_categories": [
+          "research_papers",
+          "github_repos"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Papers + code + benchmarks.",
+        "search_query": "site:paperswithcode.com"
+      },
+      {
+        "id": "biorxiv-ai",
+        "name": "bioRxiv – AI in Life Sciences",
+        "url": "https://www.biorxiv.org/collection/bioinformatics",
+        "rss": "https://www.biorxiv.org/rss/category/bioinformatics",
+        "category": "Preprint & Research Repositories",
+        "type": "preprint",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "AI applied to biology and medicine.",
+        "search_query": "biorxiv.org machine learning"
+      },
+      {
+        "id": "google-scholar",
+        "name": "Google Scholar Alerts",
+        "url": "https://scholar.google.com/",
+        "rss": null,
+        "category": "Preprint & Research Repositories",
+        "type": "search",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Custom research alerts.",
+        "search_query": "scholar.google.com"
+      },
+      {
+        "id": "kaggle",
+        "name": "Kaggle",
+        "url": "https://kaggle.com/",
+        "rss": null,
+        "category": "Datasets & Competitions",
+        "type": "community",
+        "digest_categories": [
+          "tutorials_learning",
+          "github_repos"
+        ],
+        "linkedin_worthy": false,
+        "notes": "Datasets, competitions, notebooks.",
+        "search_query": "site:kaggle.com AI competition"
+      },
+      {
+        "id": "sparrho",
+        "name": "Sparrho",
+        "url": "https://sparrho.com/",
+        "rss": null,
+        "category": "Aggregators & Research Discovery",
+        "type": "aggregator",
+        "digest_categories": [
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "AI & science discovery platform.",
+        "search_query": "sparrho.com AI"
+      },
+      {
+        "id": "lex-fridman-podcast",
+        "name": "Lex Fridman Podcast",
+        "url": "https://lexfridman.com/podcast/",
+        "rss": "https://lexfridman.com/feed/podcast/",
+        "category": "Podcasts & Multimedia",
+        "type": "podcast",
+        "digest_categories": [
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Long-form AI discussions.",
+        "search_query": "lexfridman.com podcast AI"
+      },
+      {
+        "id": "twiml-podcast",
+        "name": "TWIML AI Podcast",
+        "url": "https://twimlai.com/podcast/",
+        "rss": "https://twimlai.com/feed/",
+        "category": "Podcasts & Multimedia",
+        "type": "podcast",
+        "digest_categories": [
+          "linkedin_insights",
+          "research_papers"
+        ],
+        "linkedin_worthy": false,
+        "notes": "ML research interviews.",
+        "search_query": "twimlai.com podcast"
+      },
+      {
+        "id": "two-minute-papers",
+        "name": "Two Minute Papers (YouTube)",
+        "url": "https://www.youtube.com/@TwoMinutePapers",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg",
+        "category": "Podcasts & Multimedia",
+        "type": "video",
+        "digest_categories": [
+          "research_papers",
+          "linkedin_insights"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Accessible AI paper explainers.",
+        "search_query": "two minute papers AI youtube"
+      },
+      {
+        "id": "import-ai-newsletter",
+        "name": "Import AI Newsletter (Jack Clark)",
+        "url": "https://jack-clark.net/",
+        "rss": "https://jack-clark.net/feed/",
+        "category": "Newsletters",
+        "type": "newsletter",
+        "digest_categories": [
+          "linkedin_insights",
+          "research_papers",
+          "breaking_news"
+        ],
+        "linkedin_worthy": true,
+        "notes": "Curated AI/ML research digest by Anthropic co-founder.",
+        "search_query": "importai newsletter"
+      }
+    ]
+  },
+  "newsletter": {
+    "settings": {
+      "_meta": {
+        "description": "Newsletter settings for the newsletter skill",
+        "last_updated": "2026-02-27"
+      },
+      "title": "AI Weekly by Your Name",
+      "tagline": "AI agents, test automation, and developer productivity — every week",
+      "description": "A curated digest of the most important AI news, research, and tools for engineers and builders.",
+      "cta_label": "Subscribe on LinkedIn",
+      "cta_url": "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=YOUR_NEWSLETTER_URN",
+      "web_archive_label": "Read in browser",
+      "unsubscribe_subject": "Unsubscribe from AI Weekly",
+      "reply_to": "you@example.com",
+      "frequency": "weekly",
+      "base_url": "https://example.com/newsletters",
+      "sections": [
+        "top_stories",
+        "research_highlights",
+        "tools_repos",
+        "agents_automation",
+        "industry_pulse",
+        "worth_reading"
+      ]
+    },
+    "subscribers": [
+      {
+        "email": "you@example.com",
+        "name": "Your Name",
+        "tags": [
+          "owner",
+          "test"
+        ],
+        "source": "self"
+      }
+    ]
+  },
+  "paths": {
+    "content": "./content.md",
+    "memory": "./memory.md",
+    "notes": "./notes.md",
+    "output_dir": "./output"
+  }
+}

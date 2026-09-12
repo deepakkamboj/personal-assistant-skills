@@ -1,0 +1,39 @@
+# Credentials and secrets
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Private user config (single config + prose companion + memory)
+config.json
+content.md
+memory.md
+notes.md
+.agents/config/config.json
+.agents/config/content.md
+.agents/config/memory.md
+.agents/config/notes.md
+
+# Generated output
+output/
+.agents/config/output/
+.agents/**/output/
+
+# Python
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+
+# Node
+node_modules/
+*.tgz
+
+# CLI scratch
+.tmp_cfg/
+.tmp_install/
+.tmp*/
+.gen_commands.ps1
+
+# Local editor / runtime state
+.claude/settings.local.json

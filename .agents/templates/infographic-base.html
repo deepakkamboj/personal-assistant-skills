@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{TITLE}} — Pixel Infographic</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    :root {
+      --primary:   #6366f1;
+      --secondary: #06b6d4;
+      --accent:    #f59e0b;
+      --danger:    #ef4444;
+      --success:   #22c55e;
+      --bg:        #0f172a;
+      --surface:   #1e293b;
+      --surface2:  #334155;
+      --border:    #475569;
+      --text:      #f1f5f9;
+      --muted:     #94a3b8;
+      --faint:     #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #060d1a;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 4rem;
+      min-height: 100vh;
+    }
+
+    /* ── Toolbar ──────────────────────────── */
+    .toolbar {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      justify-content: flex-end;
+    }
+    .toolbar button {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .toolbar button:hover { border-color: var(--primary); color: var(--text); }
+
+    /* ── Canvas ───────────────────────────── */
+    .infographic {
+      width: 100%;
+      max-width: 900px;
+      background: var(--bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    }
+
+    /* ── Hero header ──────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--surface) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 3.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: 40%;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%);
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--secondary);
+      margin-bottom: 0.75rem;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero p { font-size: 1rem; color: var(--muted); max-width: 560px; line-height: 1.65; }
+    .hero-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+      margin-top: 2rem;
+    }
+
+    /* ── Section ──────────────────────────── */
+    .section { padding: 2.5rem 3.5rem; border-bottom: 1px solid var(--border); }
+    .section:last-child { border-bottom: none; }
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+    }
+    .section h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .section p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── Stat row ─────────────────────────── */
+    .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; }
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .stat:hover { border-color: var(--primary); }
+    .stat-value { font-size: 2.25rem; font-weight: 900; letter-spacing: -0.03em; }
+    .stat-label { font-size: 0.7rem; color: var(--muted); margin-top: 0.4rem; font-weight: 500; }
+
+    /* ── Icon list ────────────────────────── */
+    .icon-list { display: flex; flex-direction: column; gap: 1rem; }
+    .icon-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .icon-box {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+      background: var(--surface); border: 1px solid var(--border);
+    }
+    .icon-item .title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .icon-item .desc  { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.5; }
+
+    /* ── Steps / process ─────────────────── */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step { display: flex; gap: 1.25rem; }
+    .step-line { display: flex; flex-direction: column; align-items: center; }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 0.75rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-connector { flex: 1; width: 2px; background: var(--border); margin: 4px 0; min-height: 20px; }
+    .step-content { padding-bottom: 1.5rem; }
+    .step-content .title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .step-content .desc  { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.5; }
+
+    /* ── Comparison table ────────────────── */
+    .compare { display: grid; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
+    .compare-row { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg); }
+    .compare-row.header { background: var(--surface); }
+    .compare-cell { padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text); }
+    .compare-cell.header { font-weight: 700; color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .compare-cell .yes { color: var(--success); }
+    .compare-cell .no  { color: var(--danger); }
+
+    /* ── Timeline ────────────────────────── */
+    .timeline { display: flex; flex-direction: column; gap: 1.25rem; }
+    .tl-item { display: flex; gap: 1.25rem; }
+    .tl-left { display: flex; flex-direction: column; align-items: center; width: 80px; flex-shrink: 0; }
+    .tl-date { font-size: 0.65rem; font-weight: 700; color: var(--primary); text-align: center; }
+    .tl-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); margin: 4px 0; }
+    .tl-line { flex: 1; width: 2px; background: var(--border); }
+    .tl-content .title { font-size: 0.875rem; font-weight: 700; color: var(--text); }
+    .tl-content .desc  { font-size: 0.775rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.5; }
+
+    /* ── Bar chart ───────────────────────── */
+    .bar-chart { display: flex; flex-direction: column; gap: 0.65rem; }
+    .bar-row { display: flex; align-items: center; gap: 0.75rem; }
+    .bar-label { font-size: 0.75rem; color: var(--muted); width: 130px; flex-shrink: 0; text-align: right; }
+    .bar-track { flex: 1; height: 8px; background: var(--surface2); border-radius: 999px; overflow: hidden; }
+    .bar-fill  { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--primary), var(--secondary)); }
+    .bar-value { font-size: 0.75rem; font-weight: 700; color: var(--text); width: 40px; flex-shrink: 0; }
+
+    /* ── Tag cloud ───────────────────────── */
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+    }
+    .tag.highlight { background: rgba(99,102,241,0.15); border-color: var(--primary); color: #a5b4fc; }
+
+    /* ── Quote ───────────────────────────── */
+    .quote {
+      border-left: 3px solid var(--primary);
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border-radius: 0 12px 12px 0;
+    }
+    .quote p { font-size: 1rem; font-style: italic; color: var(--text); line-height: 1.65; }
+    .quote cite { font-size: 0.75rem; color: var(--muted); font-style: normal; margin-top: 0.5rem; display: block; }
+
+    /* ── Footer ──────────────────────────── */
+    .infographic-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 1.25rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .infographic-footer .author-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .infographic-footer img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--primary);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .infographic-footer .by { font-size: 0.75rem; color: var(--muted); }
+    .infographic-footer .by strong { color: var(--text); }
+    .infographic-footer .date { font-size: 0.7rem; color: var(--faint); }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button onclick="window.print()">🖨 Print</button>
+  <button onclick="exportHTML()">↓ Save HTML</button>
+</div>
+
+<div class="infographic" id="infographicEl">
+  <!-- ── Hero ──────────────────────────── -->
+  <div class="hero">
+    <div class="hero-eyebrow">{{EYEBROW}}</div>
+    <h1>{{TITLE}}</h1>
+    <p>{{DESCRIPTION}}</p>
+    <div class="hero-bar"></div>
+  </div>
+
+  <!-- ── Sections generated by /pixel infographic ── -->
+  {{CONTENT_SECTIONS}}
+
+  <!-- ── Footer ──────────────────────────── -->
+  <div class="infographic-footer">
+    <div class="author-row">
+      <img src="../../../photos/author.png" alt="{{AUTHOR}}" />
+      <div class="by">By <strong>{{AUTHOR}}</strong> · {{AUTHOR_TITLE}}</div>
+    </div>
+    <div class="date">{{DATE}}</div>
+  </div>
+</div>
+
+<script>
+  function exportHTML() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob([html], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '{{FILENAME}}.html';
+    a.click();
+  }
+</script>
+</body>
+</html>

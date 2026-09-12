@@ -1,0 +1,49 @@
+{
+  "name": "personal-assistant-skills",
+  "version": "1.0.0",
+  "description": "Vendor-neutral personal-assistant plugin: AI digest, daily briefing, personal branding, LinkedIn toolkit, newsletters, writing quality, and visual artifacts. Works with Claude Code, GitHub Copilot, and Codex.",
+  "bin": {
+    "assistant-skills": "bin/cli.js"
+  },
+  "type": "commonjs",
+  "files": [
+    "bin/",
+    ".agents/",
+    ".claude/commands/",
+    ".github/prompts/",
+    ".github/copilot-instructions.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "CONFIGURATION.md",
+    "README.md"
+  ],
+  "scripts": {
+    "postinstall": "node -e \"process.stdout.write('\\n  personal-assistant-skills installed. Run: assistant-skills init\\n\\n')\"",
+    "check:json": "node -e \"JSON.parse(require('fs').readFileSync('.agents/config/config.example.json','utf8'));console.log('config.example.json OK')\"",
+    "check:py": "python -m py_compile .agents/scripts/assistant_config.py .agents/scripts/memory.py",
+    "test": "npm run check:json"
+  },
+  "keywords": [
+    "ai",
+    "assistant",
+    "skills",
+    "agents",
+    "claude",
+    "copilot",
+    "codex",
+    "mcp",
+    "prompt",
+    "plugin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepakkamboj/personal-assistant-skills.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

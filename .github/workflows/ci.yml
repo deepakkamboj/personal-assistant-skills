@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate config template JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('.agents/config/config.example.json','utf8'));console.log('config.example.json OK')"
+
+      - name: Byte-compile Python scripts
+        run: python -m py_compile $(git ls-files '.agents/scripts/**/*.py')
+
+      - name: Check every skill has SKILL.md with Role + Step 0 TodoWrite
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+          const path = require('path');
+          const root = '.agents/skills';
+          let bad = [];
+          const walk = (d) => {
+            for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+              if (!e.isDirectory()) continue;
+              const full = path.join(d, e.name);
+              const skill = path.join(full, 'SKILL.md');
+              if (fs.existsSync(skill)) {
+                const t = fs.readFileSync(skill, 'utf8');
+                if (!/^## Role$/m.test(t)) bad.push(full + ' (missing ## Role)');
+                if (!/TodoWrite\(\[/.test(t)) bad.push(full + ' (missing TodoWrite)');
+                const fences = (t.match(/^```/gm) || []).length;
+                if (fences % 2 !== 0) bad.push(full + ' (unbalanced code fences)');
+              }
+              walk(full);
+            }
+          };
+          walk(root);
+          if (bad.length) { console.error(bad.join('\n')); process.exit(1); }
+          console.log('All skills valid.');
+          EOF

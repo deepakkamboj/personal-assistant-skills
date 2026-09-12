@@ -1,0 +1,36 @@
+name: personal-assistant
+version: 3.0.0
+schema_version: "1.0"
+description: Vendor-neutral personal-assistant plugin — AI digest, personal branding, LinkedIn content, newsletters, and visual artifacts.
+
+directories:
+  skills: .agents/skills
+  agents: .agents/agents
+  commands: .agents/commands
+  mcp: .agents/mcp
+  templates: .agents/templates
+  scripts: .agents/scripts
+  config: .agents/config
+
+config:
+  # Path to the single JSON config is resolved from this env var, falling back to the default.
+  env: ASSISTANT_CONFIG
+  default: ~/.assistant/config.json
+  template: .agents/config/config.example.json
+  content_template: .agents/config/content.example.md
+
+runtimes:
+  claude:
+    adapter: .agents/config/adapters/claude
+    entry: CLAUDE.md
+  github:
+    adapter: .agents/config/adapters/github
+    entry: .github/copilot-instructions.md
+  codex:
+    adapter: .agents/config/adapters/codex
+    entry: AGENTS.md
+
+mcp:
+  # External capabilities (Gmail, Google Calendar, LinkedIn publish/fetch) are provided by this server.
+  - name: connected-workspace
+    definition: .agents/mcp/connected-workspace.json

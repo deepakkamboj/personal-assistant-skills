@@ -1,0 +1,13 @@
+{
+  "name": "connected-workspace",
+  "description": "Gmail, Google Calendar, and LinkedIn tools. Provides the email, calendar, and LinkedIn publish/fetch capabilities used by this plugin's skills. Install separately from https://www.npmjs.com/package/connected-workspace-mcp.",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "connected-workspace-mcp", "--env-file", "${ASSISTANT_MCP_ENV_FILE}"],
+  "notes": "Never pass client secrets or tokens as command-line arguments. Point --env-file at a private .env file, or let the process inherit provider environment variables.",
+  "tools": {
+    "gmail": ["gmail_search", "gmail_get_message", "gmail_send_message", "gmail_reply", "gmail_modify_message"],
+    "calendar": ["calendar_list_events", "calendar_create_event", "calendar_update_event", "calendar_delete_event", "calendar_free_busy"],
+    "linkedin": ["linkedin_get_profile", "linkedin_list_posts", "linkedin_get_post", "linkedin_get_engagement", "linkedin_publish_text", "linkedin_publish_image", "linkedin_delete_post"]
+  }
+}
